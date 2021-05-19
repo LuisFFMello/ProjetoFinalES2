@@ -5,4 +5,4 @@ RA: 1840482023029
 Nome: Rafael da Silva Reis
 
 
-O projeto será com base na digitalização do prontuário médico de uma UBS.
+O projeto será com base na automação do estoque de uma oficina mecânica.
