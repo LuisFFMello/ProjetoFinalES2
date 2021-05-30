@@ -10,7 +10,7 @@ O projeto será com base na automação do estoque de uma oficina mecânica.
 
 TODO
 
-1. Criar uma 1a versão dos docs de negócio (visão, regras de negócio e glossário);
+1. Criar uma 1a versão dos docs de negócio (visão, regras de negócio e glossário); **FEITO**
 2. Criar uma 1a versão do doc de requisitos (Especificação de Requisitos de Software). Durante o processo, atualizar os documentos anteriores;
 3. Criar uma 1a versão do diagrama de casos de uso;
 4. Escolher quais casos de uso implementar;
