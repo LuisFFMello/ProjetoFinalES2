@@ -1,27 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package classes;
+package Classes;
 
 /**
  *
- * @author LUISFELIPEFERREIRADE
+ * @author luism
  */
 public class Mecanico {
     private String nome;
     private String cpf;
-    
+    private String nivelOp;
+    private String endereco;
+    private String telefone;
+
     public Mecanico() {
     }
 
-    public Mecanico(String nome, String cpf) {
-        this.nome = nome;
-        this.cpf = cpf;
-    }
-    
-    
     public String getNome() {
         return nome;
     }
@@ -37,8 +29,28 @@ public class Mecanico {
     public void setCPF(String cpf) {
         this.cpf = cpf;
     }
-    
-    public boolean testaCPF(String cpf){
-        return this.cpf.equals(cpf);
+
+    public String getNivelOp() {
+        return nivelOp;
+    }
+
+    public void setNivelOp(String nivelOp) {
+        this.nivelOp = nivelOp;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }
