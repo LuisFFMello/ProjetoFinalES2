@@ -1,6 +1,6 @@
 package Classes;
 
-import Repositorios.RepoMecanico;
+import Repositorios.*;
 
 import javax.swing.*;
 import java.util.*;
@@ -13,16 +13,69 @@ import java.util.*;
 public class Principal {
     //variável estática global para salvar as listas
     public static RepoMecanico rm = new RepoMecanico();
+    public static RepoCliente rc = new RepoCliente();
 
     public static void main(String args[]) {
 
-        testeMecanicos();
-        ListarMecanicos();
+        boolean flg = true;
+        int opt;
+
+        do{
+            opt = Integer.parseInt(JOptionPane.showInputDialog("Digite a opção:\n\n1 - Gestão de Mecânicos\n2 - Gestão de Clientes"));
+        }while(opt < 1 || opt > 2);
+
+        switch(opt){
+            case 1:
+                int aux = 0;
+                do{
+                    aux = Integer.parseInt(JOptionPane.showInputDialog("Digite a opção:\n\n1 - Cadastrar\n2 - Alterar\n3 - Buscar\n4 - Remover\n5 - Sair"));
+                    switch(aux){
+                        case 1:
+                            Mecanico mec = new Mecanico();
+                            mec.setCPF(JOptionPane.showInputDialog("Digite o CPF do mecânico: "));
+                            mec.setNome(JOptionPane.showInputDialog("Digite o nome do mecânico: "));
+                            mec.setEndereco(JOptionPane.showInputDialog("Digite o endereço do mecânico: "));
+                            mec.setNivelOp(JOptionPane.showInputDialog("Digite o nível operacional do mecânico: "));
+                            mec.setTelefone(JOptionPane.showInputDialog("Digite o telefone do mecânico: "));
+                            rm.salvarMecanico(mec);
+                        break;
+
+                        case 2:
+                            rm.editarMecanico(JOptionPane.showInputDialog("Digite o cpf do mecânico para editar:"));
+                        break;
+
+                        case 3:
+                            BuscarMecanicoPorCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para buscar: "));
+                        break;
+
+                        case 4:
+                            rm.deletarMecanicoCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para remover: "));
+                        break;
+
+                        case 5:
+                            flg = false;
+                        break;
+                    }
+                }while(flg);
+        }
+
+
+
+        //testeMecanicos();
+        //ListarMecanicos();
         //BuscarMecanicoPorCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para buscar: "));
         //rm.deletarMecanicoCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para remover: "));
-        rm.editarMecanico(JOptionPane.showInputDialog("Digite o cpf do mecânico para editar:"));
-        ListarMecanicos();
+        //rm.editarMecanico(JOptionPane.showInputDialog("Digite o cpf do mecânico para editar:"));
+        //ListarMecanicos();
+        //testeCliente();
+        //ListarCliente();
+        //BuscarClientePorCPF(JOptionPane.showInputDialog("Digite o cpf do cliente para buscar: "));
+        //rc.deletarClienteCPF(JOptionPane.showInputDialog("Digite o cpf do cliente para remover: "));
+        //rc.editarCliente(JOptionPane.showInputDialog("Digite o cpf do cliente para editar:"));
+        //ListarCliente();
     }
+
+    //MECÂNICOS
 
     static void testeMecanicos(){
 
@@ -101,4 +154,78 @@ public class Principal {
         if(!flg)
             JOptionPane.showMessageDialog(null,"Mecânico não encontrado!","Busca",2);
     }
+
+    //CLIENTES
+
+    static void testeCliente(){
+
+        Cliente cli = new Cliente();
+        Cliente cli2 = new Cliente();
+        Cliente cli3 = new Cliente();
+        Cliente cli4 = new Cliente();
+
+        boolean salvo;
+
+        cli.setCPF("9876");
+        cli.setNome("José Cuervo");
+        cli.setEndereco("Alameda das Glicínias, 200, Little Winging, Surrey");
+        cli.setTelefone("1140028922");
+
+        rc.salvarCliente(cli);
+
+        cli2.setCPF("9764");
+        cli2.setNome("Adjest Tiana");
+        cli2.setEndereco("Alameda das Glicínias, 300, Little Winging, Surrey");
+        cli2.setTelefone("1140028933");
+
+        rc.salvarCliente(cli2);
+
+        cli3.setCPF("9731");
+        cli3.setNome("Tuatha de Danann");
+        cli3.setEndereco("Alameda das Glicínias, 400, Little Winging, Surrey");
+        cli3.setTelefone("1140028944");
+
+        rc.salvarCliente(cli3);
+
+        cli4.setCPF("8246");
+        cli4.setNome("Conde Lampreia");
+        cli4.setEndereco("Alameda das Glicínias, 500, Little Winging, Surrey");
+        cli4.setTelefone("1140028999");
+
+        rc.salvarCliente(cli4);
+    }
+
+    public static void BuscarClientePorCPF(String cpf){
+        List<Cliente> lista;
+        lista = rc.listarCliente();
+        boolean flg = false;
+
+        for(Cliente cliente : lista){
+            if(cliente.getCPF().equals(cpf)) {
+                JOptionPane.showMessageDialog(null,"Nome: "+cliente.getNome()+
+                        "\nCPF: "+cliente.getCPF()+
+                        "\nEndereço: "+cliente.getEndereco()+
+                        "\nTelefone: "+cliente.getTelefone(), "Cliente", 1 );
+                flg = true;
+            }
+        }
+        if(!flg)
+            JOptionPane.showMessageDialog(null,"Cliente não encontrado!","Busca",2);
+    }
+
+    public static void ListarCliente(){
+        List<Cliente> lista;
+        lista = rc.listarCliente();
+        String x;
+        int a = 1;
+        for(Cliente cliente : lista){
+            x = "Cliente "+String.valueOf(a);
+            JOptionPane.showMessageDialog(null,"Nome: "+cliente.getNome()+
+                    "\nCPF: "+cliente.getCPF()+
+                    "\nEndereço: "+cliente.getEndereco()+
+                    "\nTelefone: "+cliente.getTelefone(), x, 1 );
+            a++;
+        }
+    }
+
 }
