@@ -12,5 +12,5 @@ public interface IRepoMecanico {
     public boolean salvarMecanico(Mecanico mecanico);
     public boolean deletarMecanicoCPF (String cpf);
     public List<Mecanico> listarMecanico();
-    public boolean editarMecanico (Mecanico mecanico);
+    public boolean editarMecanico (String cpf);
 }

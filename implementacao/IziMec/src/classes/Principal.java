@@ -18,8 +18,9 @@ public class Principal {
 
         testeMecanicos();
         ListarMecanicos();
-        BuscarMecanicoPorCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para buscar: "));
-        rm.deletarMecanicoCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para remover: "));
+        //BuscarMecanicoPorCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para buscar: "));
+        //rm.deletarMecanicoCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para remover: "));
+        rm.editarMecanico(JOptionPane.showInputDialog("Digite o cpf do mecânico para editar:"));
         ListarMecanicos();
     }
 

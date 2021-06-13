@@ -60,8 +60,45 @@ public class RepoMecanico implements IRepoMecanico {
     }
 
     @Override
-    public boolean editarMecanico(Mecanico mecanico) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean editarMecanico(String cpf) {
+        List<Mecanico> lista;
+        lista = Classes.Principal.rm.listarMecanico();
+        for(Mecanico mecanico : lista){
+            if(mecanico.getCPF().equals(cpf)) {
+                String opt = JOptionPane.showInputDialog("Deseja editar o(a) mecânico(a) " +
+                        ""+mecanico.getNome()+"?\n\n1 - Sim\n2 - Não");
+                if(opt.equals("1")){
+                    try{
+                        int idx = lista.indexOf(mecanico);
+                        listarMecanico.remove(lista.indexOf(mecanico));
+                        Mecanico m = new Mecanico();
+                        // nome;
+                        // cpf;
+                        // nivelOp;
+                        // endereco;
+                        // telefone;
+                        m.setNome(JOptionPane.showInputDialog("Digite o nome do(a) mecânico(a):"));
+                        m.setCPF(JOptionPane.showInputDialog("Digite o CPF do(a) mecânico(a):"));
+                        m.setNivelOp(JOptionPane.showInputDialog("Digite o nível operacional do(a) mecânico(a):"));
+                        m.setEndereco(JOptionPane.showInputDialog("Digite o endereço do(a) mecânico(a):"));
+                        m.setTelefone(JOptionPane.showInputDialog("Digite o telefone do(a) mecânico(a):"));
+                        listarMecanico.add(idx, m);
+                        JOptionPane.showMessageDialog(null,"Mecânico editado com sucesso!");
+                        return true;
+                    }catch (Exception e){
+                        JOptionPane.showMessageDialog(null,"Erro: "+e.getMessage());
+                        return false;
+                    }
+                }else if(opt.equals("2")){
+                    JOptionPane.showMessageDialog(null,"Abortando operação!");
+                    return false;
+                }else{
+                    JOptionPane.showMessageDialog(null,"Opção inválida!");
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 }
