@@ -17,47 +17,93 @@ public class Principal {
 
     public static void main(String args[]) {
 
-        boolean flg = true;
+        boolean flg, auxiliar;
+        flg = auxiliar = true;
         int opt;
-
         do{
-            opt = Integer.parseInt(JOptionPane.showInputDialog("Digite a opção:\n\n1 - Gestão de Mecânicos\n2 - Gestão de Clientes"));
-        }while(opt < 1 || opt > 2);
+            do{
+                opt = Integer.parseInt(JOptionPane.showInputDialog("Digite a opção:\n\n1 - Gestão de Mecânicos\n2 - Gestão de Clientes\n3 - Sair"));
+            }while(opt < 1 || opt > 3);
 
-        switch(opt){
-            case 1:
-                int aux = 0;
-                do{
-                    aux = Integer.parseInt(JOptionPane.showInputDialog("Digite a opção:\n\n1 - Cadastrar\n2 - Alterar\n3 - Buscar\n4 - Remover\n5 - Sair"));
-                    switch(aux){
-                        case 1:
-                            Mecanico mec = new Mecanico();
-                            mec.setCPF(JOptionPane.showInputDialog("Digite o CPF do mecânico: "));
-                            mec.setNome(JOptionPane.showInputDialog("Digite o nome do mecânico: "));
-                            mec.setEndereco(JOptionPane.showInputDialog("Digite o endereço do mecânico: "));
-                            mec.setNivelOp(JOptionPane.showInputDialog("Digite o nível operacional do mecânico: "));
-                            mec.setTelefone(JOptionPane.showInputDialog("Digite o telefone do mecânico: "));
-                            rm.salvarMecanico(mec);
-                        break;
+            switch(opt) {
+                case 1:
+                    int aux = 0;
+                    do {
+                        aux = Integer.parseInt(JOptionPane.showInputDialog("Digite a opção:\n\n1 - Cadastrar\n2 - Alterar\n3 - Buscar\n4 - Remover\n5 - Listar todos\n6 - Sair"));
+                        switch (aux) {
+                            case 1:
+                                Mecanico mec = new Mecanico();
+                                mec.setCPF(JOptionPane.showInputDialog("Digite o CPF do mecânico: "));
+                                mec.setNome(JOptionPane.showInputDialog("Digite o nome do mecânico: "));
+                                mec.setEndereco(JOptionPane.showInputDialog("Digite o endereço do mecânico: "));
+                                mec.setNivelOp(JOptionPane.showInputDialog("Digite o nível operacional do mecânico: "));
+                                mec.setTelefone(JOptionPane.showInputDialog("Digite o telefone do mecânico: "));
+                                rm.salvarMecanico(mec);
+                                break;
 
-                        case 2:
-                            rm.editarMecanico(JOptionPane.showInputDialog("Digite o cpf do mecânico para editar:"));
-                        break;
+                            case 2:
+                                rm.editarMecanico(JOptionPane.showInputDialog("Digite o cpf do mecânico para editar:"));
+                                break;
 
-                        case 3:
-                            BuscarMecanicoPorCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para buscar: "));
-                        break;
+                            case 3:
+                                BuscarMecanicoPorCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para buscar: "));
+                                break;
 
-                        case 4:
-                            rm.deletarMecanicoCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para remover: "));
-                        break;
+                            case 4:
+                                rm.deletarMecanicoCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para remover: "));
+                                break;
 
-                        case 5:
-                            flg = false;
-                        break;
-                    }
-                }while(flg);
-        }
+                            case 5:
+                                rm.listarMecanico();
+                                break;
+
+                            case 6:
+                                flg = false;
+                                break;
+                        }
+                    } while (flg);
+                    break;
+                case 2:
+                    do {
+                        aux = Integer.parseInt(JOptionPane.showInputDialog("Digite a opção:\n\n1 - Cadastrar\n2 - Alterar\n3 - Buscar\n4 - Remover\n5 - Listar todos\n6 - Sair"));
+                        switch (aux) {
+                            case 1:
+                                Cliente cli = new Cliente();
+                                cli.setCPF(JOptionPane.showInputDialog("Digite o CPF do cliente: "));
+                                cli.setNome(JOptionPane.showInputDialog("Digite o nome do cliente: "));
+                                cli.setEndereco(JOptionPane.showInputDialog("Digite o endereço do cliente: "));
+                                cli.setTelefone(JOptionPane.showInputDialog("Digite o telefone do cliente: "));
+                                rc.salvarCliente(cli);
+                                break;
+
+                            case 2:
+                                rc.editarCliente(JOptionPane.showInputDialog("Digite o cpf do cliente para editar:"));
+                                break;
+
+                            case 3:
+                                BuscarClientePorCPF(JOptionPane.showInputDialog("Digite o cpf do cliente para buscar: "));
+                                break;
+
+                            case 4:
+                                rc.deletarClienteCPF(JOptionPane.showInputDialog("Digite o cpf do cliente para remover: "));
+                                break;
+
+                            case 5:
+                                rc.listarCliente();
+                                break;
+
+                            case 6:
+                                flg = false;
+                                break;
+                        }
+                    } while (flg);
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null, "Finalizando IziMec...");
+                    auxiliar = false;
+                    break;
+            }
+        }while(auxiliar);
 
 
 

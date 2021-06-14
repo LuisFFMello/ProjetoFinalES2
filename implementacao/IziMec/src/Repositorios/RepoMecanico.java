@@ -29,33 +29,43 @@ public class RepoMecanico implements IRepoMecanico {
     public boolean deletarMecanicoCPF(String cpf) {
         List<Mecanico> lista;
         lista = Classes.Principal.rm.listarMecanico();
-        for(Mecanico mecanico : lista){
-            if(mecanico.getCPF().equals(cpf)) {
-                String opt = JOptionPane.showInputDialog("Deseja excluir o(a) mecânico(a) " +
-                        ""+mecanico.getNome()+"?\n\n1 - Sim\n2 - Não");
-                if(opt.equals("1")){
-                    try{
-                        listarMecanico.remove(lista.indexOf(mecanico));
-                        JOptionPane.showMessageDialog(null,"Mecânico excluído com sucesso!");
-                        return true;
-                    }catch (Exception e){
-                        JOptionPane.showMessageDialog(null,"Erro: "+e.getMessage());
+        if(!lista.isEmpty()) {
+            for (Mecanico mecanico : lista) {
+                if (mecanico.getCPF().equals(cpf)) {
+                    String opt = JOptionPane.showInputDialog("Deseja excluir o(a) mecânico(a) " +
+                            "" + mecanico.getNome() + "?\n\n1 - Sim\n2 - Não");
+                    if (opt.equals("1")) {
+                        try {
+                            listarMecanico.remove(lista.indexOf(mecanico));
+                            JOptionPane.showMessageDialog(null, "Mecânico excluído com sucesso!");
+                            return true;
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
+                            return false;
+                        }
+                    } else if (opt.equals("2")) {
+                        JOptionPane.showMessageDialog(null, "Abortando operação!");
+                        return false;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Opção inválida!");
                         return false;
                     }
-                }else if(opt.equals("2")){
-                    JOptionPane.showMessageDialog(null,"Abortando operação!");
-                    return false;
-                }else{
-                    JOptionPane.showMessageDialog(null,"Opção inválida!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mecânico não encontrado!");
                     return false;
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null,"Não há mecânicos cadastrados!");
+            return false;
         }
         return true;
     }
 
     @Override
     public List<Mecanico> listarMecanico() {
+        if(listarMecanico.isEmpty())
+            JOptionPane.showMessageDialog(null,"Não há mecânicos cadastrados!");
         return listarMecanico;
     }
 
