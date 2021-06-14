@@ -16,11 +16,11 @@ TODO
 4. Escolher quais casos de uso implementar; **FEITO**
 5. Informar o professor; **FEITO**
 6. Revisar doc de negócio, requisitos, casos de uso; **FEITO**
-7. Escolher 1 caso de uso e documentar (detalhado);
-8. Implementar;
-9. Revisar doc de negócio, requisitos, casos de uso;
-10. Escolher 1 caso de uso e documentar (detalhado);
-11. Criar uma 1a versão do DAS (Documento de Arquitetura de Software)
+7. Escolher 1 caso de uso e documentar (detalhado); **FEITO (Mecânicos)**
+8. Implementar; **FEITO**
+9. Revisar doc de negócio, requisitos, casos de uso; **FEITO**
+10. Escolher 1 caso de uso e documentar (detalhado); **FEITO**
+11. Criar uma 1a versão do DAS (Documento de Arquitetura de Software) 
 12. Implementar;
 13. Revisar doc de negócio, requisitos, casos de uso e DAS;
 14. Documentar último caso de uso (detalhado);
