@@ -20,6 +20,7 @@ public class RepoCliente implements IRepoCliente {
         try{
             listarCliente.add(cliente);
         }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Erro: "+e);
             return false;
         }
         return true;

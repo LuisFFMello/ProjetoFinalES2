@@ -11,11 +11,15 @@ import java.util.*;
  */
 
 public class Principal {
-    //variável estática global para salvar as listas
+    //variáveis para salvar as listas
     public static RepoMecanico rm = new RepoMecanico();
     public static RepoCliente rc = new RepoCliente();
+    public static List<SaidaProduto> ls = new ArrayList<SaidaProduto>();
 
     public static void main(String args[]) {
+
+
+        testarInventario();
 
         boolean flg, auxiliar;
         flg = auxiliar = true;
@@ -105,20 +109,6 @@ public class Principal {
             }
         }while(auxiliar);
 
-
-
-        //testeMecanicos();
-        //ListarMecanicos();
-        //BuscarMecanicoPorCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para buscar: "));
-        //rm.deletarMecanicoCPF(JOptionPane.showInputDialog("Digite o cpf do mecânico para remover: "));
-        //rm.editarMecanico(JOptionPane.showInputDialog("Digite o cpf do mecânico para editar:"));
-        //ListarMecanicos();
-        //testeCliente();
-        //ListarCliente();
-        //BuscarClientePorCPF(JOptionPane.showInputDialog("Digite o cpf do cliente para buscar: "));
-        //rc.deletarClienteCPF(JOptionPane.showInputDialog("Digite o cpf do cliente para remover: "));
-        //rc.editarCliente(JOptionPane.showInputDialog("Digite o cpf do cliente para editar:"));
-        //ListarCliente();
     }
 
     //MECÂNICOS
@@ -274,4 +264,27 @@ public class Principal {
         }
     }
 
+    //PRODUTOS
+
+    static void testarInventario(){
+        SaidaProduto sp = new SaidaProduto();
+        SaidaProduto sp2 = new SaidaProduto();
+
+        sp.setId("12");
+        sp.setNome("Biela");
+        sp.setQtde(1125);
+        sp.setValorTotal(sp.getQtde()*45);
+        sp.setMesSaida("04");
+        ls.add(sp);
+
+        sp2.setId("13");
+        sp2.setNome("Biela");
+        sp2.setQtde(1485);
+        sp2.setValorTotal(sp2.getQtde()*45);
+        sp2.setMesSaida("05");
+        ls.add(sp2);
+
+        Inventario inv = new Inventario();
+
+    }
 }

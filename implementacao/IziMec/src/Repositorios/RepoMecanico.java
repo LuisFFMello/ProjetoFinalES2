@@ -20,6 +20,7 @@ public class RepoMecanico implements IRepoMecanico {
         try{
             listarMecanico.add(mecanico);
         }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Erro: "+e);
             return false;
         }
         return true;
