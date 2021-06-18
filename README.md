@@ -5,7 +5,7 @@ RA: 1840482023029
 Nome: Rafael da Silva Reis
 
 
-O projeto será com base na automação do estoque de uma oficina mecânica.
+O projeto será com base na automação de uma oficina mecânica.
 
 
 TODO
