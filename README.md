@@ -16,7 +16,7 @@ TODO
 4. Escolher quais casos de uso implementar; **FEITO**
 5. Informar o professor; **FEITO**
 6. Revisar doc de negócio, requisitos, casos de uso; **FEITO**
-7. Escolher 1 caso de uso e documentar (detalhado); **FEITO (Mecânicos)**
+7. Escolher 1 caso de uso e documentar (detalhado); **FEITO**
 8. Implementar; **FEITO**
 9. Revisar doc de negócio, requisitos, casos de uso; **FEITO**
 10. Escolher 1 caso de uso e documentar (detalhado); **FEITO**
