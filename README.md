@@ -20,8 +20,8 @@ TODO
 8. Implementar; **FEITO**
 9. Revisar doc de negócio, requisitos, casos de uso; **FEITO**
 10. Escolher 1 caso de uso e documentar (detalhado); **FEITO**
-11. Criar uma 1a versão do DAS (Documento de Arquitetura de Software) 
+11. Criar uma 1a versão do DAS (Documento de Arquitetura de Software) **FEITO**
 12. Implementar; **FEITO**
-13. Revisar doc de negócio, requisitos, casos de uso e DAS;
+13. Revisar doc de negócio, requisitos, casos de uso e DAS; **FEITO**
 14. Documentar último caso de uso (detalhado); **FEITO**
 15. Implementar; **FEITO**
